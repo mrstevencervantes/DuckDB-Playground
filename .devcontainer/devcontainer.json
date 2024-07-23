@@ -1,0 +1,50 @@
+// For format details, see https://aka.ms/devcontainer.json
+{
+	"name": "Python DuckDB Playground",
+	"image": "mcr.microsoft.com/devcontainers/python:3.11",
+	"features": {
+		"ghcr.io/devcontainers/features/node:1": {},
+		"ghcr.io/eitsupi/devcontainer-features/duckdb-cli:1": {
+			"extensions": "postgres_scanner,sqlite3,sqlite_scanner"
+		}
+	},
+	// Configure tool-specific properties.
+	"customizations": {
+		// Configure properties specific to VS Code.
+		"vscode": {
+			// Add the IDs of extensions you want installed when the container is created.
+			"extensions": [
+				"ms-python.python",
+				"ms-python.vscode-pylance",
+				"charliermarsh.ruff",
+				"mtxr.sqltools",
+				"mtxr.sqltools-driver-sqlite",
+				"mechatroner.rainbow-csv",
+				"oderwat.indent-rainbow",
+				"prql-lang.prql-vscode",
+				"GitHub.copilot",
+				"GitHub.copilot-chat",
+				"Evidence.sqltools-duckdb-driver"
+			],
+			// Set *default* container specific settings.json values on container create.
+			"settings": {
+				"python.defaultInterpreterPath": "/usr/local/bin/python",
+				"python.linting.enabled": true,
+				"python.testing.unittestEnabled": false,
+				"python.testing.pytestEnabled": false,
+				"[python]": {
+					"editor.formatOnSave": true
+				},
+				"python.formatting.provider": "black",
+				"sqltools.useNodeRuntime": true,
+				"files.exclude": {
+					".ruff_cache": true,
+					".pytest_cache": true
+				}
+			}
+		}
+	},
+	// Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+	"remoteUser": "vscode",
+	"postCreateCommand": "python3 -m pip install -r requirements.txt"
+}
