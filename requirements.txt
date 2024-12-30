@@ -1,2 +1,2 @@
 duckdb==1.1.2
-duckdb_engine==0.13.4
+duckdb_engine==0.14.0
