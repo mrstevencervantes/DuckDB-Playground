@@ -11,3 +11,6 @@ updates:
       interval: "weekly"
     allow:
       dependency-type: "all"
+    target-branch: "main"
+    labels:
+      - "Pip upddates by Dependabot"
